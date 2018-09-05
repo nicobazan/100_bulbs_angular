@@ -1,0 +1,41 @@
+<div style="text-align:center">
+  <h2>
+    How many bulbs are still on?
+  </h2>
+  <!-- <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="> -->
+</div>
+<form [formGroup]="bulbForm" (ngSubmit)="submitForm()" align="center">
+
+  <mat-form-field appearance="outline" [formGroup]="bulbForm" class="form-group">
+    <mat-label>bulbs</mat-label>
+    <input matInput type="text" formControlName="bulb" class="form-control" [ngClass]="" />
+    <mat-hint *ngIf="isSubmitted && f.bulb.errors && f.bulb.errors.required">Number of bulbs is required</mat-hint>
+    <mat-hint *ngIf="isSubmitted && f.bulb.errors && f.bulb.errors.pattern">Bulbs input must be a number</mat-hint>
+    <mat-hint *ngIf="isSubmitted && isOutOfRange">bulbs must be greater than people</mat-hint>
+  </mat-form-field>
+
+
+  <!-- <mat-form-field appearance="outline">
+  <mat-label>Outline form field</mat-label>
+  <input matInput placeholder="Placeholder">
+  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  <mat-hint>Hint</mat-hint>
+</mat-form-field> -->
+
+
+  <br><br>
+
+  <mat-form-field appearance="outline" [formGroup]="bulbForm" class="form-group">
+    <mat-label>people</mat-label>
+    <input matInput type="text" formControlName="people" class="form-control" [ngClass]="" />
+    <mat-hint *ngIf="isSubmitted && f.people.errors && f.people.errors.required">Number of people is required</mat-hint>
+    <mat-hint *ngIf="isSubmitted && f.people.errors && f.people.errors.pattern">People input must be a number</mat-hint>
+
+  </mat-form-field>
+
+  <div [formGroup]="bulbForm" class="form-group">
+    <button mat-raised-button color="primary" class="white-icon"> Calculate Bulbs </button>
+  </div>
+</form>
+
+
